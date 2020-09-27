@@ -1,7 +1,7 @@
 class VkBot:
 
     def __init__(self):
-        self._COMMANDS = [[['что умеешь', 'хелп', 'помощь']], "U gay"]
+        self._COMMANDS = [['что умеешь', 'хелп', 'помощь'], "U gay"]
 
     def new_message(self, message):
         '''Чекер сообщений
@@ -10,15 +10,14 @@ class VkBot:
         :type message: str
 
         '''
+        
+        if message.lower() in self._COMMANDS[0]: return '''Краткий экскурс по командам:'''
 
-        for c in self._COMMANDS[0]:
-            for m in c:
-                if message.lower() == m: return '''Краткий экскурс по командам:'''
 
         if message.lower() == self._COMMANDS[1]:
             return "No u"
 
-        else: return message
+        else: return ''
 
 
         
