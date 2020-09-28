@@ -17,18 +17,18 @@ bot = VkBot()
 for event in longpoll.listen():
     if event.type == VkBotEventType.MESSAGE_NEW:
         if event.from_user:
-
-            write_msg(event.message.peer_id, bot.new_message(event.message.text))
+            if event.message.text != '':
+                write_msg(event.message.peer_id, bot.new_message(event.message.text))
 
 
         elif event.from_chat:
-            if event.message.text[0] == '/':
+            if event.message.text != '':
+                if event.message.text[0] == '/':
 
-                l = list(event.message.text)
-                l.remove('/')
-                s = ''
+                    l = list(event.message.text).remove('/')
+                    s = ''
 
-                for ch in l:
-                    s += ch
+                    for ch in l:
+                        s += ch
 
-                write_msg(event.message.peer_id, bot.new_message(s))
+                    write_msg(event.message.peer_id, bot.new_message(s))
