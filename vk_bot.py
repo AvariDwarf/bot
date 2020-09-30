@@ -24,3 +24,5 @@ class VkBot:
 
         if message.lower() in self._COMMANDS[2]:
             return 'А может быть ты?'
+
+        return ''
